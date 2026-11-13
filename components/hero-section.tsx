@@ -20,9 +20,9 @@ export function HeroSection({ locale }: { locale: Locale }) {
         <img
           src={resolveHref(siteConfig.profileImage)}
           alt={name}
-          width={160}
-          height={160}
-          className="h-40 w-40 shrink-0 rounded-full object-cover"
+          width={600}
+          height={676}
+          className="h-auto w-48 shrink-0"
         />
         <div>
           <h1 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">{name}</h1>
