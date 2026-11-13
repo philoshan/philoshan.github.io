@@ -12,27 +12,39 @@ const linkClass =
 
 export function HeroSection({ locale }: { locale: Locale }) {
   const t = getUi(locale).home;
+  const name = getDisplayName(locale);
   return (
     <section className="pt-12 sm:pt-20">
-      <h1 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">{getDisplayName(locale)}</h1>
-      <p className="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">{getIntro(locale)}</p>
+      <div className="flex flex-col gap-8 sm:flex-row sm:items-center">
+        {/* eslint-disable-next-line @next/next/no-img-element -- 정적 export라 next/image 최적화 미사용 */}
+        <img
+          src={resolveHref(siteConfig.profileImage)}
+          alt={name}
+          width={160}
+          height={160}
+          className="h-40 w-40 shrink-0 rounded-full object-cover"
+        />
+        <div>
+          <h1 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">{name}</h1>
+          <p className="mt-3 leading-relaxed text-neutral-600 dark:text-neutral-400">{getIntro(locale)}</p>
+          <ul className="mt-6 space-y-2 text-neutral-900 dark:text-neutral-100">
+            <li>
+              <a href={resolveHref(siteConfig.cvUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {t.ctaCv}
+              </a>
+              <span className="ml-1 text-neutral-400">↗</span>
+            </li>
+            <li>
+              <a href={resolveHref(siteConfig.portfolioUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                {t.ctaPortfolio}
+              </a>
+              <span className="ml-1 text-neutral-400">↗</span>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-      <ul className="mt-10 space-y-2 text-neutral-900 dark:text-neutral-100">
-        <li>
-          <a href={resolveHref(siteConfig.cvUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
-            {t.ctaCv}
-          </a>
-          <span className="ml-1 text-neutral-400">↗</span>
-        </li>
-        <li>
-          <a href={resolveHref(siteConfig.portfolioUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
-            {t.ctaPortfolio}
-          </a>
-          <span className="ml-1 text-neutral-400">↗</span>
-        </li>
-      </ul>
-
-      <p className="mt-10 text-sm text-neutral-500 dark:text-neutral-400">
+      <p className="mt-12 text-sm text-neutral-500 dark:text-neutral-400">
         <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
           GitHub
         </a>

@@ -21,6 +21,8 @@ export const siteConfig = {
    * - PDF로 올릴 경우: public/cv.pdf, public/portfolio.pdf 에 파일을 넣으면 됨
    * - 외부 링크(노션, 구글 드라이브 등)라면 "https://..." 주소로 바꾸면 됨
    */
+  /** 메인 프로필 사진 (public/ 기준) */
+  profileImage: "/profile-square.jpg",
   cvUrl: "/CV.Jiseung_Han.pdf",
   portfolioUrl: "/portfolio.pdf",
   email: "philoshan@hanyang.ac.kr",
