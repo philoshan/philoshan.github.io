@@ -7,35 +7,40 @@ function resolveHref(url: string) {
   return url.startsWith("/") ? `${process.env.NEXT_PUBLIC_BASE_PATH || ""}${url}` : url;
 }
 
+const linkClass =
+  "underline decoration-neutral-300 underline-offset-4 transition-colors hover:decoration-neutral-900 dark:decoration-neutral-600 dark:hover:decoration-neutral-100";
+
 export function HeroSection({ locale }: { locale: Locale }) {
   const t = getUi(locale).home;
   return (
-    <section className="mx-auto max-w-5xl px-4 pb-16 pt-12 sm:px-6 sm:pt-16">
-      <p className="text-sm font-medium uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400">
-        {t.heroTitle}
+    <section className="pt-12 sm:pt-20">
+      <h1 className="text-lg font-medium text-neutral-900 dark:text-neutral-100">{getDisplayName(locale)}</h1>
+      <p className="mt-4 leading-relaxed text-neutral-600 dark:text-neutral-400">{getIntro(locale)}</p>
+
+      <ul className="mt-10 space-y-2 text-neutral-900 dark:text-neutral-100">
+        <li>
+          <a href={resolveHref(siteConfig.cvUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
+            {t.ctaCv}
+          </a>
+          <span className="ml-1 text-neutral-400">↗</span>
+        </li>
+        <li>
+          <a href={resolveHref(siteConfig.portfolioUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
+            {t.ctaPortfolio}
+          </a>
+          <span className="ml-1 text-neutral-400">↗</span>
+        </li>
+      </ul>
+
+      <p className="mt-10 text-sm text-neutral-500 dark:text-neutral-400">
+        <a href={siteConfig.githubUrl} target="_blank" rel="noopener noreferrer" className={linkClass}>
+          GitHub
+        </a>
+        <span className="mx-2">·</span>
+        <a href={`mailto:${siteConfig.email}`} className={linkClass}>
+          {siteConfig.email}
+        </a>
       </p>
-      <h1 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tight text-slate-900 dark:text-slate-50 sm:text-5xl">
-        {getDisplayName(locale)}
-      </h1>
-      <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">{getIntro(locale)}</p>
-      <div className="mt-10 flex flex-wrap gap-3">
-        <a
-          href={resolveHref(siteConfig.cvUrl)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full bg-indigo-600 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-indigo-500"
-        >
-          {t.ctaCv}
-        </a>
-        <a
-          href={resolveHref(siteConfig.portfolioUrl)}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-800 transition hover:border-indigo-300 hover:text-indigo-700 dark:border-slate-700 dark:bg-slate-950 dark:text-slate-100 dark:hover:border-indigo-500/50"
-        >
-          {t.ctaPortfolio}
-        </a>
-      </div>
     </section>
   );
 }

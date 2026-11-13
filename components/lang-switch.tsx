@@ -15,7 +15,7 @@ export function LangSwitch({ locale }: { locale: Locale }) {
   return (
     <Link
       href={href}
-      className="rounded-lg border border-slate-200 px-2.5 py-1.5 text-xs font-medium text-slate-600 transition hover:border-indigo-300 hover:text-indigo-700 dark:border-slate-800 dark:text-slate-300 dark:hover:border-indigo-500/40 dark:hover:text-indigo-300"
+      className="transition-colors hover:text-neutral-900 dark:hover:text-neutral-100"
       hrefLang={other}
     >
       {other === "ko" ? "KO" : "EN"}

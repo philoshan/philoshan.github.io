@@ -18,10 +18,10 @@ export default function LocaleLayout({
   if (!isLocale(params.locale)) notFound();
   const locale = params.locale as Locale;
   return (
-    <>
+    <div className="mx-auto flex min-h-screen max-w-xl flex-col px-6">
       <SiteHeader locale={locale} />
-      <main className="page-enter min-h-[65vh]">{children}</main>
+      <main className="flex-1">{children}</main>
       <SiteFooter locale={locale} />
-    </>
+    </div>
   );
 }

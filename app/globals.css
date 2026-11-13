@@ -6,16 +6,12 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --accent: #4f46e5;
+  --foreground: #171717;
 }
 
 .dark {
-  --background: #020617;
-  --foreground: #f1f5f9;
-  --muted: #94a3b8;
-  --accent: #818cf8;
+  --background: #111111;
+  --foreground: #e5e5e5;
 }
 
 body {
@@ -27,26 +23,5 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.page-enter {
-  animation: page-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .page-enter {
-    animation: none;
   }
 }

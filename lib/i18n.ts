@@ -3,22 +3,14 @@ import type { Locale } from "./locales";
 export const ui = {
   ko: {
     home: {
-      heroTitle: "안녕하세요,",
-      ctaCv: "CV 보기",
-      ctaPortfolio: "포트폴리오 보기",
-    },
-    footer: {
-      rights: "All rights reserved.",
+      ctaCv: "CV",
+      ctaPortfolio: "포트폴리오",
     },
   },
   en: {
     home: {
-      heroTitle: "Hi, I'm",
-      ctaCv: "View CV",
-      ctaPortfolio: "View portfolio",
-    },
-    footer: {
-      rights: "All rights reserved.",
+      ctaCv: "CV",
+      ctaPortfolio: "Portfolio",
     },
   },
 } as const;
