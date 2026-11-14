@@ -34,12 +34,14 @@ export function HeroSection({ locale }: { locale: Locale }) {
               </a>
               <span className="ml-1 text-neutral-400">↗</span>
             </li>
-            <li>
-              <a href={resolveHref(siteConfig.portfolioUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
-                {t.ctaPortfolio}
-              </a>
-              <span className="ml-1 text-neutral-400">↗</span>
-            </li>
+            {siteConfig.portfolioUrl ? (
+              <li>
+                <a href={resolveHref(siteConfig.portfolioUrl)} target="_blank" rel="noopener noreferrer" className={linkClass}>
+                  {t.ctaPortfolio}
+                </a>
+                <span className="ml-1 text-neutral-400">↗</span>
+              </li>
+            ) : null}
           </ul>
         </div>
       </div>

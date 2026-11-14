@@ -24,7 +24,8 @@ export const siteConfig = {
   /** 메인 프로필 사진 (public/ 기준) */
   profileImage: "/profile-web.jpg",
   cvUrl: "/CV.Jiseung_Han.pdf",
-  portfolioUrl: "/portfolio.pdf",
+  /** 포트폴리오 준비되면 "/portfolio.pdf" 등으로 지정 — null이면 버튼이 숨겨짐 */
+  portfolioUrl: null as string | null,
   email: "philoshan@hanyang.ac.kr",
   githubUrl: "https://github.com/philoshan",
 } as const;
